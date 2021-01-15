@@ -9,7 +9,7 @@ contract CryptoCoinMachine {
 
     event earnProfits(bool profitable, uint profitAmount);
     
-    function cryptoSpinned() public payable {
+    function CryptoSpinned() public payable {
         require(msg.value > 0, "Insufficient balance");
         
         uint gamblerBalance = msg.value;
@@ -55,27 +55,35 @@ contract CryptoCoinMachine {
         if (randomCoin1 == 1 && 
             randomCoin2 > 1 && randomCoin2 <= 4 &&
             randomCoin3 > 4 && randomCoin3 <= 9) {
-            ProfitsCalculated(gamblerBalance, 3);
+            ProfitsCalculated(gamblerBalance, 5);
         }
         //Profitable outcome 7: coin1 = ETH, coin2 = USDT, coin3 = XRP
         if (randomCoin1 > 1 && randomCoin1 <= 4 &&
             randomCoin2 > 4 && randomCoin2 <= 9 &&
             randomCoin3 > 9 && randomCoin3 <= 16) {
-            ProfitsCalculated(gamblerBalance, 2);
+            ProfitsCalculated(gamblerBalance, 3);
         }
         //Profitable outcome 8: coin1 = USDT, coin2 = XRP, coin3 = LTC
         if (randomCoin1 > 4 && randomCoin1 <= 9 &&
             randomCoin2 > 9 && randomCoin2 <= 16 &&
             randomCoin3 > 16 && randomCoin3 <= 25) {
-            ProfitsCalculated(gamblerBalance, 1);
+            ProfitsCalculated(gamblerBalance, 2);
         }
+        //Profitable outcome 9: coin1 = XRP, coin2 = LTC, coin3 = BTC
+        if (randomCoin1 > 9 && randomCoin1 <= 16 &&
+            randomCoin2 > 16 && randomCoin2 <= 25 &&
+            randomCoin3 == 1) {
+            ProfitsCalculated(gamblerBalance, 4);
+        }
+        //Profitable outcome 10: coin1 = LTC, coin2 = BTC, coin3 = ETH
+        if (randomCoin1 > 16 && randomCoin1 <= 25 &&
+            randomCoin2 == 1 &&
+            randomCoin3 > 1 && randomCoin3 <= 4) {
+            ProfitsCalculated(gamblerBalance, 4);
+        }
+        
         //Unprofitable outcome: else
         else { ProfitsCalculated(gamblerBalance, 0); }
-        
-    }
-    
-    function Random() public view returns (uint) {
-        return uint(keccak256(abi.encodePacked(block.timestamp)))%5;
     }
     
     function ContractBalance() public view returns (uint) { return address(this).balance; }
@@ -89,5 +97,5 @@ contract CryptoCoinMachine {
         emit earnProfits(profitable, profits);
     }
         
-    function getOutcome() public view returns (uint[] memory) { return gamblers[msg.sender]; }
+    function GetOutcome() public view returns (uint[] memory) { return gamblers[msg.sender]; }
 }
