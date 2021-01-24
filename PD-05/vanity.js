@@ -1,4 +1,3 @@
-console.log('Connecting...');
 Web3 = require('web3');
 web3 = new Web3();
 var i = 0;
@@ -10,9 +9,9 @@ console.log(`Searching for prefix ${find}`);
 do {
 	newAddress = web3.eth.accounts.create();
 	prefix = newAddress.address.slice(2, findlength_plus2).toLowerCase();
-	if (++i % 1000 == 0) console.log(i);
+	if (++i % 10000 == 0) console.log(i);
 } while (prefix != find);
 
 console.log(`Found an address with prefix ${prefix}!`);
-console.log(`address = ${newAddress.address}`);
-console.log(`privateKey = ${newAddress.privateKey}`);
+console.log(`Address = ${newAddress.address}`);
+console.log(`PrivateKey = ${newAddress.privateKey}`);
