@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<head>
+    <title>CCMachine</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
+    <script type="text/javascript" src="frontendCCMachine.js"></script>
+</head>
+
+<body>
+    <main>
+        <div class="header">
+            <p>
+                Crypto Coin Machine
+            </p>
+            <p>
+                <img src="./pngFiles/btc.png" id="btc">
+                <img src="./pngFiles/eth.png" id="eth">
+                <img src="./pngFiles/ltc.png" id="ltc">
+                <img src="./pngFiles/ada.png" id="ada">
+                <img src="./pngFiles/xmr.png" id="xmr">
+            </p>
+        </div>
+        <div class="body">
+            <div class="CCMachineDisplay">
+                <p id='outcome'>
+                    <div id='randomCoin1'>CryptoCoin 1</div>
+                    <div id='randomCoin2'>CryptoCoin 2</div>
+                    <div id='randomCoin3'>CryptoCoin 3</div>
+                </p>
+                <p class="buttons">
+                    <input type="button" id="cryptoSpin" value="Activate Crypto Spin!" onclick="CryptoSpinned()"/>
+                    <input type="button" id="retrieveOutcome" value="Retrieve random coins" onclick="OutcomeRetrieved()"/>
+                </p>
+            </div>
+
+            <div class="currentSession">
+                <p>
+                    <input type="text" name="gamblerBalance" id="gamblerBalance"/>
+                    your balance
+                </p>
+                <p>
+                    <input type="text" name="cCMachineBalance" id="cCMachineBalance"/>
+                    CCMachine balance
+                </p>
+                <p>
+                    <input type="text" name="stake" id="stake"/>
+                    your stake
+                </p>
+            </div>
+        </div>    
+    </main>
+</body>
+
+<footer>
+    <hr />
+    <div id="credits">© 2021 CryptoCoinMachine & Co.</div>
+</footer>

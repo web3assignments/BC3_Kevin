@@ -143,6 +143,12 @@ const CCMachineAbi=[
 	},
 ]
 
+// sources:
+// https://web3js.readthedocs.io/en/v1.3.0/web3-eth-contract.html
+// https://web3js.readthedocs.io/en/v1.3.0/web3-eth-accounts.html
+// https://web3js.readthedocs.io/en/v1.3.0/web3-utils.html
+// https://app.ens.domains
+
 var gamblers;
 var CCMachineAddress;
 
@@ -159,7 +165,7 @@ async function AsyncLoaded() {
     const network = await web3.eth.net.getId().catch((reason) => SessionLogged(`Unable to reach Rinkeby Test Network ${reason}`));            
     if (typeof network === 'undefined' || network != 4) { SessionLogged("Only use Rinkeby Test Network"); return; }
     gamblers = await web3.eth.getAccounts();
-    const name = "decentralizedslots.eth";
+    const name = "cryptocoinmachine.eth";
     CCMachineAddress = await web3.eth.ens.getAddress(name);  
     BalancesUpdated();
 }     
@@ -192,11 +198,11 @@ async function CryptoSpinned(){
 
 async function OutcomeRetrieved() {
     const CCMachineContract = new web3.eth.Contract(CCMachineAbi, CCMachineAddress);
-    await CCMachineContract.methods.GetOracle().send({from: accounts[0]});
-	SessionLogged('The Oracle is searching for the right atmosphere... ');
+    await CCMachineContract.methods.GetOracle().send({from: gamblers[0]});
+	SessionLogged('The Oracle is warming up...');
 	await new Promise(r => setTimeout(r, 50000));
 	SessionLogged(`The Oracle is almost ready... Hold on!`);
-	await CCMachineContract.methods.OutcomeProcessed().send({from: accounts[0]});
+	await CCMachineContract.methods.OutcomeProcessed().send({from: gamblers[0]});
 	document.querySelector('#cryptoSpin').style.visibility = "block";
 	document.querySelector('#retrieveOutcome').style.visibility = "hidden";
 	SessionLogged(`All set! Now spin the crypto coins like you've never spinned before!`)
