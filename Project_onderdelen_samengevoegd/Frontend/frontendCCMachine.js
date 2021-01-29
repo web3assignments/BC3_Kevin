@@ -165,7 +165,7 @@ async function AsyncLoaded() {
     const network = await web3.eth.net.getId().catch((reason) => SessionLogged(`Unable to reach Rinkeby Test Network ${reason}`));            
     if (typeof network === 'undefined' || network != 4) { SessionLogged("Only use Rinkeby Test Network"); return; }
     gamblers = await web3.eth.getAccounts();
-    const name = "cryptocoinmachine.eth";
+    const name = "ccmachine.eth";
     CCMachineAddress = await web3.eth.ens.getAddress(name);  
     BalancesUpdated();
 }     
