@@ -2,7 +2,7 @@
 
 pragma solidity ^0.6.0;
 
-import "./VRFConsumerBase.sol";
+import "@chainlink/contracts/src/v0.6/VRFConsumerBase.sol";
 
 contract Oracle is VRFConsumerBase {
 

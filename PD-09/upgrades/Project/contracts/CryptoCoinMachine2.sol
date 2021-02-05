@@ -135,5 +135,4 @@ contract CryptoCoinMachine2 is Initializable {
         
     function GetOutcomes() public view returns (uint[] memory) { return gamblers[msg.sender]; }
 
-    function SelfDestruct() public payable { selfdestruct(msg.sender); }
 }
