@@ -1,2 +1,3 @@
-Added the folder: website-ipfs to IPFS.
-See png images: cmd-website-ipfs and cmd-cat-ipfs (latter one is an example of trying things out).
+Added the folder: Project_onderdelen_samengevoegd to IPFS.
+Then I added the IPFS link to my ENS: ccmachine.eth
+See png images
