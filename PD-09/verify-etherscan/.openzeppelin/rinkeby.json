@@ -1,0 +1,149 @@
+{
+  "manifestVersion": "3.1",
+  "impls": {
+    "cf801b1b27d41195445f082bbf9c6454cc272d7d7dd83cac8f3a42f91d9b2640": {
+      "address": "0x997e93E4D5951B610140fFA5aB7588B3Ddc56661",
+      "txHash": "0x6f8de853858caaf07d9fa8adf1d5d3bf56f6766ada74ba8f0c09e0edbc73eaaf",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "initialized",
+            "type": "t_bool",
+            "src": "..\\@openzeppelin\\upgrades-core\\contracts\\Initializable.sol:23"
+          },
+          {
+            "contract": "Initializable",
+            "label": "initializing",
+            "type": "t_bool",
+            "src": "..\\@openzeppelin\\upgrades-core\\contracts\\Initializable.sol:28"
+          },
+          {
+            "contract": "Initializable",
+            "label": "______gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "..\\@openzeppelin\\upgrades-core\\contracts\\Initializable.sol:63"
+          },
+          {
+            "contract": "CryptoCoinMachine",
+            "label": "gamblers",
+            "type": "t_mapping(t_address,t_array(t_uint256)dyn_storage)",
+            "src": "..\\..\\..\\..\\..\\..\\..\\..\\C\\Users\\kevin\\CryptoCoinMachine\\BC3_Kevin\\PD-09\\upgrades\\Project\\contracts\\CryptoCoinMachine.sol:9"
+          },
+          {
+            "contract": "CryptoCoinMachine",
+            "label": "outcomes",
+            "type": "t_array(t_uint256)dyn_storage",
+            "src": "..\\..\\..\\..\\..\\..\\..\\..\\C\\Users\\kevin\\CryptoCoinMachine\\BC3_Kevin\\PD-09\\upgrades\\Project\\contracts\\CryptoCoinMachine.sol:10"
+          },
+          {
+            "contract": "CryptoCoinMachine",
+            "label": "oracle",
+            "type": "t_address",
+            "src": "..\\..\\..\\..\\..\\..\\..\\..\\C\\Users\\kevin\\CryptoCoinMachine\\BC3_Kevin\\PD-09\\upgrades\\Project\\contracts\\CryptoCoinMachine.sol:11"
+          },
+          {
+            "contract": "CryptoCoinMachine",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\..\\..\\..\\..\\..\\C\\Users\\kevin\\CryptoCoinMachine\\BC3_Kevin\\PD-09\\upgrades\\Project\\contracts\\CryptoCoinMachine.sol:12"
+          }
+        ],
+        "types": {
+          "t_mapping(t_address,t_array(t_uint256)dyn_storage)": {
+            "label": "mapping(address => uint256[])"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_uint256)dyn_storage": {
+            "label": "uint256[]"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          }
+        }
+      }
+    },
+    "8cedc0e4226bd84a46791d0cf8bfefc11f6a8bb2a4819bc1a54f2f85b40ea7f6": {
+      "address": "0x815320C4071fb08A29284AAd00E4785B98620526",
+      "txHash": "0x319dab40755961e7568dbba2e7222683e8dad1156bb664579cc8a5787aae120b",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "initialized",
+            "type": "t_bool",
+            "src": "..\\@openzeppelin\\upgrades-core\\contracts\\Initializable.sol:23"
+          },
+          {
+            "contract": "Initializable",
+            "label": "initializing",
+            "type": "t_bool",
+            "src": "..\\@openzeppelin\\upgrades-core\\contracts\\Initializable.sol:28"
+          },
+          {
+            "contract": "Initializable",
+            "label": "______gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "..\\@openzeppelin\\upgrades-core\\contracts\\Initializable.sol:63"
+          },
+          {
+            "contract": "CryptoCoinMachine2",
+            "label": "gamblers",
+            "type": "t_mapping(t_address,t_array(t_uint256)dyn_storage)",
+            "src": "..\\..\\..\\..\\..\\..\\..\\..\\C\\Users\\kevin\\CryptoCoinMachine\\BC3_Kevin\\PD-09\\upgrades\\Project\\contracts\\CryptoCoinMachine2.sol:9"
+          },
+          {
+            "contract": "CryptoCoinMachine2",
+            "label": "outcomes",
+            "type": "t_array(t_uint256)dyn_storage",
+            "src": "..\\..\\..\\..\\..\\..\\..\\..\\C\\Users\\kevin\\CryptoCoinMachine\\BC3_Kevin\\PD-09\\upgrades\\Project\\contracts\\CryptoCoinMachine2.sol:10"
+          },
+          {
+            "contract": "CryptoCoinMachine2",
+            "label": "oracle",
+            "type": "t_address",
+            "src": "..\\..\\..\\..\\..\\..\\..\\..\\C\\Users\\kevin\\CryptoCoinMachine\\BC3_Kevin\\PD-09\\upgrades\\Project\\contracts\\CryptoCoinMachine2.sol:11"
+          },
+          {
+            "contract": "CryptoCoinMachine2",
+            "label": "owner",
+            "type": "t_address",
+            "src": "..\\..\\..\\..\\..\\..\\..\\..\\C\\Users\\kevin\\CryptoCoinMachine\\BC3_Kevin\\PD-09\\upgrades\\Project\\contracts\\CryptoCoinMachine2.sol:12"
+          }
+        ],
+        "types": {
+          "t_mapping(t_address,t_array(t_uint256)dyn_storage)": {
+            "label": "mapping(address => uint256[])"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_array(t_uint256)dyn_storage": {
+            "label": "uint256[]"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          }
+        }
+      }
+    }
+  },
+  "admin": {
+    "address": "0x5E987B5446A995af73fD716dB3c9f2b6Ce1923f4",
+    "txHash": "0x208d830fb3e20d10a8a2c958b312390630f49f5b436b6865faa99653b8dae94c"
+  }
+}

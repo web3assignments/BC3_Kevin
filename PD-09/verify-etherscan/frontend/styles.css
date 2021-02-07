@@ -1,0 +1,8 @@
+.main{
+    display: flex;    
+}
+
+.header {
+    width: auto;
+    height: 120px;
+}
