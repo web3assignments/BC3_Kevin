@@ -3,6 +3,7 @@ const HDWalletProvider = require('@truffle/hdwallet-provider');
 const fs = require('fs');
 const mnemonic = 'possible depend finish wise garlic power unveil deputy estate kidney garden finish';
 const infuraKey = '7faf37c0b3064c2c864c66628ffc4623';
+const etherscanKey = '19P69GDSZBTIXY8U26MUA2X1A6MDMZKF9F';
 
 var adr;
 
@@ -55,5 +56,8 @@ module.exports = {
     compilers: { solc: { version: "^0.6.0"} },
     plugins: [
       'truffle-plugin-verify'
-  ]
+  ],
+  api_keys: {
+      etherscan: etherscanKey
+  }
 }

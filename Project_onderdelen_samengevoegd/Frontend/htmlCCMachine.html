@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <head>
     <title>CCMachine</title>
     <meta charset="utf-8">
@@ -9,55 +8,46 @@
     <script type="text/javascript" src="frontendCCMachine.js"></script>
 </head>
 
-<body>
+<body style="background-color: lightblue">
     <main>
-        <div class="header">
-            <p>
-                Crypto Coin Machine
-            </p>
-            <p>
-                <img src="./pngFiles/btc.png" id="btc">
-                <img src="./pngFiles/eth.png" id="eth">
-                <img src="./pngFiles/ltc.png" id="ltc">
-                <img src="./pngFiles/ada.png" id="ada">
-                <img src="./pngFiles/xmr.png" id="xmr">
-            </p>
-        </div>
         <div class="body">
-            <div class="CCMachineDisplay">
-                <p id='outcome'>
-                    <div id='randomCoin1'>CryptoCoin 1</div>
-                    <div id='randomCoin2'>CryptoCoin 2</div>
-                    <div id='randomCoin3'>CryptoCoin 3</div>
-                </p>
-                <p class="buttons">
-                    <input type="button" id="cryptoSpin" value="Activate Crypto Spin!" onclick="CryptoSpinned()"/>
-                    <input type="button" id="retrieveOutcome" value="Retrieve random coins" onclick="OutcomeRetrieved()"/>
+            <div class="header">
+                <p>
+                    Crypto Coin Machine <br><br>
+                    <img src="./pngFiles/btc.png" id="btc">
+                    <img src="./pngFiles/eth.png" id="eth">
+                    <img src="./pngFiles/ltc.png" id="ltc">
+                    <img src="./pngFiles/ada.png" id="ada">
+                    <img src="./pngFiles/xmr.png" id="xmr">
                 </p>
             </div>
-
+            <hr />
             <div class="currentSession">
                 <p>
-                    <input type="text" name="gamblerBalance" id="gamblerBalance"/>
-                    your balance
-                </p>
-                <p>
-                    <input type="text" name="cCMachineBalance" id="cCMachineBalance"/>
-                    CCMachine balance
-                </p>
-                <p>
-                    <input type="text" name="stake" id="stake"/>
-                    your stake
+                    My balance: <input type="text" name="gamblerBalance" id="gamblerBalance"/> 
+                    CCMachine balance: <input type="text" name="cCMachineBalance" id="cCMachineBalance"/> 
+                    My stake: <input type="text" name="stake" id="stake"/>
                 </p>
             </div>
+            <hr />
+            <div class="CCMachineDisplay">
+                <p class="buttons">
+                    Step 1: Consult the Oracle for good fortune: <input type="button" id="retrieveOutcome" value="Oracle" onclick="OutcomeRetrieved()"/>
+                    <br>
+                    <br>
+                    Step 2: Activate the CryptoCoinMachine: <input type="button" id="cryptoSpin" value="Activate" onclick="CryptoSpinned()"/>
+                </p>
+            </div>
+            <hr />
             <div>
-                <p id="log"></p>
+                <p id="log">
+                    Dear diary: 
+                </p>
             </div>
         </div>    
     </main>
 </body>
-
-<footer>
-    <hr />
+<hr />
+<footer id="footer">
     <div id="credits">© 2021 CryptoCoinMachine & Co.</div>
 </footer>

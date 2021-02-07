@@ -7,7 +7,7 @@ import "./Oracle.sol";
 
 contract CryptoCoinMachine is Ownable {
     mapping(address => uint[]) gamblers;
-    uint[] public outcomes;
+    uint[3] public outcomes;
     address public oracle;
 
     constructor() public payable Ownable() { }
@@ -40,7 +40,9 @@ contract CryptoCoinMachine is Ownable {
         }
         return randomNr;
     }
-    function OutcomeProcessed() public { gamblers[msg.sender] = OracleNrProcessed(GetOracleNr()); }
+    function OutcomeProcessed() public {
+        outcomes = OracleNrProcessed(GetOracleNr()); 
+        gamblers[msg.sender] = outcomes; }
     
     function CryptoSpinned() sufficientStake(1 ether) public payable {
         uint gamblerBalance = msg.value;
@@ -48,8 +50,6 @@ contract CryptoCoinMachine is Ownable {
         uint randomCoin1 = outcomes[0];
         uint randomCoin2 = outcomes[1];
         uint randomCoin3 = outcomes[2];
-        
-        gamblers[msg.sender] = outcomes;
         
         //Profitable outcome 1: All BTC
         if (randomCoin1 == 1 &&

@@ -1,8 +1,10 @@
-.main{
-    display: flex;    
+.header {
+    text-align: center;
 }
 
-.header {
-    width: auto;
-    height: 120px;
+.footer {
+    position : absolute;
+    bottom : 0;
+    width: 100%;
+    height: auto;
 }
