@@ -97,7 +97,7 @@ const CCMachineAbi=[
 	},
 	{
 		"inputs": [],
-		"name": "GetOutcome",
+		"name": "GetOutcomes",
 		"outputs": [
 			{
 				"internalType": "uint[]",
@@ -159,6 +159,11 @@ function SessionLogged(stringy, ...arguments) {
     document.getElementById("log").innerHTML += stringy + " " + log + "\n";
 }
 
+function OracleLogged(stringy, ...arguments) {
+    var log = arguments.toString();
+    document.getElementById("logOracle").innerHTML += stringy + " " + log + "\n";
+}
+
 async function AsyncLoaded() {
     web3 = new Web3(Web3.givenProvider);
     await web3.eth.requestAccounts().catch(x => SessionLogged(x.message));
@@ -175,26 +180,29 @@ window.addEventListener('load', AsyncLoaded);
 async function OutcomeRetrieved() {
     const CCMachineContract = new web3.eth.Contract(CCMachineAbi, CCMachineAddress);
     await CCMachineContract.methods.GetOracle().send({from: gamblers[0]});
-	SessionLogged(`The Oracle is warming up...`);
+	OracleLogged(`Oracle is warming up...`);
 	await new Promise(r => setTimeout(r, 50000));
-	SessionLogged(`almost ready...`);
+	OracleLogged(`almost ready...`);
 	await CCMachineContract.methods.OutcomeProcessed().send({from: gamblers[0]});
 	document.querySelector('#cryptoSpin').style.visibility = "block";
 	document.querySelector('#retrieveOutcome').style.visibility = "hidden";
-	SessionLogged(`All set! Now activate the CryptoCoinMachine!`)
+	OracleLogged(`All set! Activate the CryptoCoinMachine!`)
 }
 
 async function CryptoSpinned(){
 	const CCMachineContract = new web3.eth.Contract(CCMachineAbi, CCMachineAddress);
     var stake = document.getElementById("stake").value;
+	if (stake < 1) {
+		OracleLogged(`Your stake must be atleast 1 ETH`);
+		document.querySelector('#cryptoSpin').style.visibility = "hidden";
+		document.querySelector('#retrieveOutcome').style.visibility = "block";
+	}
     var stakeToWei = web3.utils.toWei(stake);
 	var response =  await CCMachineContract.methods.CryptoSpinned().send({from: gamblers[0], value:stakeToWei});
 
 	BalancesUpdated();
     var gas = await web3.eth.getGasPrice();
-	SessionLogged(`Gas: ${gas}`);
-	var outcome = await CCMachineContract.methods.GetOutcomes().call({from: gamblers[0]});
-	SessionLogged(`Session outcome: ${outcome}`);
+	await CCMachineContract.methods.GetOutcomes().call({from: gamblers[0]});
 	BalancesUpdated();
 	
     SessionLogged(`Gas payed: ${Session(web3.utils.fromWei((response.gasPayed * gas).toString(), 'ether'))} ETH`);    
@@ -206,8 +214,6 @@ async function CryptoSpinned(){
     catch(e) {
 		SessionLogged(`Better luck next time! The CryptoCoinMachine took: ${stake} ETH from you!`);
 	}
-	document.querySelector('#cryptoSpin').style.visibility = "hidden";
-	document.querySelector('#retrieveOutcome').style.visibility = "block";
 }
 
 async function BalancesUpdated(){
